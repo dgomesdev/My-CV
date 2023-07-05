@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My CV</string>
+    <string name="resume">As a dynamic professional motivated by an interest in technology and
+        problem solving, I am seeking new challenges in Android development.\n\n
+
+With experience working with international clients, I have successfully collaborated with
+        multi-cultural teams, communicating with adaptability and with a focus
+        on teamwork.\n\n
+
+My continuous willingness to learn new things and my aptitude for programming led me to study Kotlin
+        and Java, database manipulation, API handling, dependency injection, testing and
+        AOSP-related knowledge.\n\n
+
+Knowledge that I want to put into practice after my career transition as a mobile developer</string>
+</resources>
