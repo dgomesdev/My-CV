@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -40,7 +41,13 @@ fun CVApp() {
     val scope = rememberCoroutineScope()
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { CVTopBar() },
+        topBar = { CVTopBar(
+            onNavigationIconClick = {
+                scope.launch {
+                    scaffoldState.drawerState.open()
+                }
+            }
+        ) },
         drawerContent = {
             Image(
                 painter = painterResource(R.drawable.dgomesdev_logo),
@@ -55,22 +62,37 @@ fun CVApp() {
                 }
             )
         },
-        bottomBar = { CVBottomBar(
-            onNavigate = { navController.navigate(it) },
-            screen = "Profile") }
+        bottomBar = {
+            CVBottomBar(
+                onNavigate = { navController.navigate(it) },
+                screen = "Profile"
+            )
+        }
     ) {
         CVNavHost(
             navController = navController,
             modifier = Modifier.padding(it)
-            )
+        )
     }
 }
 
 @Composable
-fun CVTopBar() {
+fun CVTopBar(
+    onNavigationIconClick: () -> Unit
+) {
     val context = LocalContext.current
     TopAppBar(
         title = { Text("My CV") },
+        navigationIcon = {
+            IconButton(
+                onClick = onNavigationIconClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Menu,
+                    contentDescription = "CV sections"
+                )
+            }
+        },
         actions = {
             IconButton(onClick = {
                 Toast.makeText(
@@ -105,13 +127,14 @@ fun Sections(
         for (section in sections) {
             Text(
                 section,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(16.dp)
                     .clickable {
                         onNavigate(section)
                         onExpandChange()
                     }
-                )
+            )
         }
     }
 }
@@ -129,10 +152,13 @@ fun CVBottomBar(
         tabs.forEachIndexed { index, tab ->
             NavigationBarItem(
                 selected = currentScreen == index,
-                onClick = { onNavigate(tab) ; currentScreen = index },
+                onClick = { onNavigate(tab); currentScreen = index },
                 icon = {
                     if (index == 0) Icon(imageVector = Icons.Default.List, contentDescription = tab)
-                    else Icon(imageVector = Icons.Default.AccountCircle, contentDescription = "Contact")
+                    else Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Contact"
+                    )
                 },
                 label = {
                     Text(
