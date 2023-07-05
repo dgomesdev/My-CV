@@ -3,6 +3,8 @@ package com.dgomesdev.mycv.ui.features
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,7 +23,7 @@ fun Profile(
     modifier: Modifier
 ) {
     ConstraintLayout(
-        modifier = modifier
+        modifier = modifier.verticalScroll(rememberScrollState())
     ) {
         val (name, photo, title, resume, softSkills, hardSkills) = createRefs()
         Text(

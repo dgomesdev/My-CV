@@ -59,10 +59,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.navigation:navigation-compose:2.6.0")
     implementation("androidx.navigation:navigation-runtime-ktx:2.6.0")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation ("androidx.compose.material:material:1.4.3")
 
     testImplementation("junit:junit:4.13.2")
 

@@ -28,6 +28,12 @@ fun CVNavHost(
         composable(route = "Education") {
             Education(padding)
         }
+        composable(route = "Languages") {
+            Languages(padding)
+        }
+        composable(route = "Other") {
+            Other(padding)
+        }
         composable(route = "Contact") {
             Contact(padding)
         }
