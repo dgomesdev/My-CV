@@ -94,9 +94,9 @@ fun Profile(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
-            Text(" • Android Studio")
-            Text(" • Kotlin")
-            Text(" • Java")
+            Text(" • Native Android (Kotlin + Java")
+            Text(" • MVVM")
+            Text(" • Unit tests")
             Text(" • SQL")
             Text(" • Git")
         }

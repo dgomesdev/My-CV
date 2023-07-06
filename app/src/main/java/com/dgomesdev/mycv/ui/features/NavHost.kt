@@ -22,8 +22,8 @@ fun CVNavHost(
         composable(route = "Profile") {
             Profile(padding)
         }
-        composable(route = "WorkExperience") {
-            WorkExperience(padding)
+        composable(route = "Work Experiences") {
+            WorkExperiences(padding)
         }
         composable(route = "Education") {
             Education(padding)

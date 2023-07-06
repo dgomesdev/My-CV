@@ -118,11 +118,10 @@ fun Sections(
     Column {
         val sections = listOf(
             "Profile",
-            "Work experience",
+            "Work experiences",
             "Education",
             "Languages",
-            "Other",
-            "Contact"
+            "Other"
         )
         for (section in sections) {
             Text(
