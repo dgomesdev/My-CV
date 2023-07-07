@@ -1,5 +1,6 @@
 package com.dgomesdev.mycv.ui.features
 
+import android.content.Context
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -25,17 +26,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.dgomesdev.mycv.R
 
 @Composable
 fun WorkExperiences(
-    modifier: Modifier
+    modifier: Modifier,
+    context: Context
 ) {
     Column(modifier = modifier.verticalScroll(rememberScrollState())) {
-        Experience(modifier = modifier, job = JobExperience.BusinessFrance)
-        Experience(modifier = modifier, job = JobExperience.Rodafuso)
-        Experience(modifier = modifier, job = JobExperience.Stracau)
-        Experience(modifier = modifier, job = JobExperience.Businove)
+        Experience(modifier = modifier, job = JobExperience.BusinessFrance(context))
+        Experience(modifier = modifier, job = JobExperience.Rodafuso(context))
+        Experience(modifier = modifier, job = JobExperience.Stracau(context))
+        Experience(modifier = modifier, job = JobExperience.Businove(context))
     }
 }
 
@@ -68,8 +72,8 @@ fun Experience(
             IconButton(onClick = { expanded = !expanded }, modifier = modifier.weight(1f)) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                    contentDescription = if (expanded) "show less"
-                    else "show more"
+                    contentDescription = if (expanded) stringResource(R.string.show_less)
+                    else stringResource(R.string.show_more)
                 )
             }
         }
@@ -91,39 +95,39 @@ sealed class JobExperience(
     val location: String,
     val description: String
 ) {
-    object BusinessFrance : JobExperience(
-        "International business developer",
+    class BusinessFrance(context: Context) : JobExperience(
+        context.getString(R.string.international_business_developer),
         "Business France",
         "09/2021",
         "09/2023",
         "Sao Paulo, Brazil",
-        "Tech"
+        context.getString(R.string.tech)
     )
 
-    object Rodafuso : JobExperience(
-        "International sales",
+    class Rodafuso(context: Context) : JobExperience(
+        context.getString(R.string.international_sales),
         "Rodafuso",
         "01/2021",
         "09/2021",
         "Sao Bernardo do Campo, Brazil",
-        "Industrial parts"
+        context.getString(R.string.industrial_parts)
     )
 
-    object Stracau : JobExperience(
-        "International sales",
+    class Stracau(context: Context) : JobExperience(
+        context.getString(R.string.international_sales),
         "Stracau Valves France",
         "10/2019",
         "09/2020",
         "Genas, France",
-        "Industrial valves"
+        context.getString(R.string.industrial_valves)
     )
 
-    object Businove : JobExperience(
-        "International development assistant",
+    class Businove(context: Context) : JobExperience(
+        context.getString(R.string.international_development_assistant),
         "Businove Innovation Consulting",
         "04/2019",
         "09/2019",
         "Lyon, France",
-        "Consulting firm"
+        context.getString(R.string.consulting_firm)
     )
 }

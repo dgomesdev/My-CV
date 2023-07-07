@@ -1,6 +1,6 @@
 package com.dgomesdev.mycv.ui.features
 
-import android.widget.Toast
+import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,6 +18,8 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -27,13 +29,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.dgomesdev.mycv.R
@@ -44,7 +47,8 @@ typealias OnContactClick = (String) -> Unit
 
 @Composable
 fun CVApp(
-    onContactClick: OnContactClick
+    onContactClick: OnContactClick,
+    context: Context
 ) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
@@ -86,7 +90,8 @@ fun CVApp(
         CVNavHost(
             navController = navController,
             modifier = Modifier.padding(it),
-            onContactClick
+            onContactClick,
+            context
         )
     }
 }
@@ -95,32 +100,32 @@ fun CVApp(
 fun CVTopBar(
     onNavigationIconClick: () -> Unit
 ) {
-    val context = LocalContext.current
+    var expandedMenu by remember {
+        mutableStateOf(false)
+    }
     TopAppBar(
         backgroundColor = DgomesDevGreen,
-        title = { Text("My CV") },
+        title = { Text(stringResource(R.string.app_name)) },
         navigationIcon = {
             IconButton(
                 onClick = onNavigationIconClick
             ) {
                 Icon(
                     imageVector = Icons.Default.Menu,
-                    contentDescription = "CV sections"
+                    contentDescription = stringResource(R.string.cv_sections)
                 )
             }
         },
         actions = {
-            IconButton(onClick = {
-                Toast.makeText(
-                    context,
-                    "Developed by Dgomes Dev",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }) {
+            IconButton(onClick = { expandedMenu = !expandedMenu }) {
                 Icon(
                     imageVector = Icons.Filled.Info,
-                    contentDescription = "Developed by Dgomes Dev"
+                    contentDescription = stringResource(R.string.language_options)
                 )
+                LanguageMenu(
+                    expandedMenu = expandedMenu,
+                    onExpandChange = { expandedMenu = !expandedMenu }
+                    )
             }
         }
     )
@@ -132,12 +137,12 @@ fun Sections(
     onExpandChange: () -> Unit
 ) {
     Column {
-        val sections = listOf(
-            "Profile",
-            "Work experience",
-            "Education",
-            "Foreign languages",
-            "Other"
+        val sections = mapOf(
+            "Profile" to stringResource(R.string.profile),
+            "Work experience" to stringResource(R.string.work_experience),
+            "Education" to stringResource(R.string.education),
+            "Foreign languages" to stringResource(R.string.foreign_languages),
+            "Other" to stringResource(R.string.other)
         )
         for (section in sections) {
             Row(
@@ -146,17 +151,29 @@ fun Sections(
                     .border(BorderStroke(1.dp, Color.Black))
             ) {
                 Text(
-                    section,
+                    section.value,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)
                         .clickable {
-                            onNavigate(section)
+                            onNavigate(section.key)
                             onExpandChange()
                         }
                 )
             }
         }
+    }
+}
+
+@Composable
+fun LanguageMenu(
+    expandedMenu: Boolean,
+    onExpandChange: () -> Unit
+) {
+    DropdownMenu(expanded = expandedMenu, onDismissRequest = { onExpandChange() }) {
+        DropdownMenuItem({Text(stringResource(R.string.english))}, onClick = { onExpandChange() })
+        DropdownMenuItem({Text(stringResource(R.string.french))}, onClick = { onExpandChange() })
+        DropdownMenuItem({Text(stringResource(R.string.portuguese))}, onClick = { onExpandChange() })
     }
 }
 
@@ -186,7 +203,7 @@ fun CVBottomBar(
                 label = {
                     Text(
                         if (index == 0) tab
-                        else "Contact"
+                        else stringResource(R.string.contact)
                     )
                 }
             )

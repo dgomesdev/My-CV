@@ -1,5 +1,6 @@
 package com.dgomesdev.mycv.ui.features
 
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,21 +16,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dgomesdev.mycv.R
 
 @Composable
 fun ForeignLanguages(
-    modifier: Modifier
+    modifier: Modifier,
+    context: Context
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
-        LanguageCard(modifier = modifier, Language.Portuguese)
-        LanguageCard(modifier = modifier, Language.French)
-        LanguageCard(modifier = modifier, Language.English)
-        LanguageCard(modifier = modifier, Language.Spanish)
-        LanguageCard(modifier = modifier, Language.Italian)
-        LanguageCard(modifier = modifier, Language.German)
-        LanguageCard(modifier = modifier, Language.Russian)
+        LanguageCard(modifier = modifier, Language.Portuguese(context))
+        LanguageCard(modifier = modifier, Language.French(context))
+        LanguageCard(modifier = modifier, Language.English(context))
+        LanguageCard(modifier = modifier, Language.Spanish(context))
+        LanguageCard(modifier = modifier, Language.Italian(context))
+        LanguageCard(modifier = modifier, Language.German(context))
+        LanguageCard(modifier = modifier, Language.Russian(context))
     }
 }
 
@@ -63,53 +65,47 @@ fun LanguageCard(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LanguagePreview() {
-    ForeignLanguages(modifier = Modifier.padding(8.dp))
-}
-
 sealed class Language(val flag: String, val language: String, val level: String) {
 
-    object English : Language(
+    class English(context: Context) : Language(
         "\uD83C\uDDFA\uD83C\uDDF8",
-        "English",
-        "Advanced"
+        context.getString(R.string.spanish),
+        context.getString(R.string.advanced)
     )
 
-    object French : Language(
+    class French(context: Context) : Language(
         "\uD83C\uDDEB\uD83C\uDDF7",
-        "French",
-        "Fluent"
+        context.getString(R.string.spanish),
+        context.getString(R.string.fluent)
     )
 
-    object Portuguese : Language(
+    class Portuguese(context: Context) : Language(
         "\uD83C\uDDE7\uD83C\uDDF7",
-        "Portuguese",
-        "Native language"
+        context.getString(R.string.spanish),
+        context.getString(R.string.native_language)
     )
 
-    object Spanish : Language(
+    class Spanish(context: Context) : Language(
         "\uD83C\uDDEA\uD83C\uDDF8",
-        "Spanish",
-        "Intermediary"
+        context.getString(R.string.spanish),
+        context.getString(R.string.intermediary)
     )
 
-    object Italian : Language(
+    class Italian(context: Context) : Language(
         "\uD83C\uDDEE\uD83C\uDDF9",
-        "Italian",
-        "Intermediary"
+        context.getString(R.string.italian),
+        context.getString(R.string.intermediary)
     )
 
-    object German : Language(
+    class German(context: Context) : Language(
         "\uD83C\uDDE9\uD83C\uDDEA",
-        "German",
-        "Basic"
+        context.getString(R.string.german),
+        context.getString(R.string.basic)
     )
 
-    object Russian : Language(
+    class Russian(context: Context) : Language(
         "\uD83C\uDDF7\uD83C\uDDFA",
-        "Russian",
-        "Basic"
+        context.getString(R.string.russian),
+        context.getString(R.string.basic)
     )
 }

@@ -1,15 +1,73 @@
 <resources>
     <string name="app_name">My CV</string>
     <string name="resume">As a dynamic professional motivated by an interest in technology and
-        problem solving, I am seeking new challenges in Android development.\n\n
-
-With experience working with international clients, I have successfully collaborated with
-        multi-cultural teams, communicating with adaptability and with a focus
-        on teamwork.\n\n
-
-My continuous willingness to learn new things and my aptitude for programming led me to study Kotlin
-        and Java, database manipulation, API handling, dependency injection, testing and
-        AOSP-related knowledge.\n\n
-
-Knowledge that I want to put into practice after my career transition as a mobile developer</string>
+        problem solving, I am seeking for new challenges as an Android developer.\n\n
+        As an International Business developer I could work with international clients, successfully
+        collaborated with multi-cultural teams, and developed my communication adaptability.\n\n
+        My continuous willingness to learn new things and my aptitude for programming led me to
+        study Kotlin and Java, architecture for mobile apps and Android-related knowledge.\n\n
+        Knowledge that I want to put into practice after my career transition as a mobile developer
+    </string>
+    <string name="profile">Profile</string>
+    <string name="work_experience">Work experience</string>
+    <string name="education">Education</string>
+    <string name="foreign_languages">Foreign languages</string>
+    <string name="other">Other</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="contact">Contact</string>
+    <string name="language_options">Language options</string>
+    <string name="cv_sections">CV sections</string>
+    <string name="show_less">Show less</string>
+    <string name="show_more">Show more</string>
+    <string name="international_business_developer">International business developer</string>
+    <string name="tech">Support for French tech and service companies looking to enter the Brazilian
+        market, with prospecting missions, qualified introductions, market research, information
+        monitoring and business consulting</string>
+    <string name="international_sales">International sales</string>
+    <string name="industrial_parts">Prospecting and selling to South American customers looking for
+       automotive and other types of industrial parts</string>
+    <string name="industrial_valves">Prospecting and selling to customers in Portuguese-speaking
+        countries wishing to buy industrial valves</string>
+    <string name="international_development_assistant">International development assistant</string>
+    <string name="consulting_firm">Support for the adaptation and translation of the services offered
+        by an consulting firm specialized in innovation financing for the US market</string>
+    <string name="master_degree">Master degree</string>
+    <string name="international_relations">International relations</string>
+    <string name="master_first_year">Master first year</string>
+    <string name="international_law">International Law</string>
+    <string name="bachelor">Bachelor</string>
+    <string name="law_and_political_science">Law and Political Science</string>
+    <string name="technical_degree">Technical degree integrated to High School</string>
+    <string name="informatics">Informatics</string>
+    <string name="spanish">Spanish</string>
+    <string name="italian">Italian</string>
+    <string name="german">German</string>
+    <string name="russian">Russian</string>
+    <string name="advanced">Advanced</string>
+    <string name="fluent">Fluent</string>
+    <string name="native_language">Native language</string>
+    <string name="intermediary">Intermediary</string>
+    <string name="basic">Basic</string>
+    <string name="certifications">Certifications</string>
+    <string name="volunteering">Volunteering</string>
+    <string name="curiosities">Curiosities about me</string>
+    <string name="chess_champion">" • Chess champion in High School"</string>
+    <string name="trans_siberian_railway">" • Travelled the Trans-Siberian Railway"</string>
+    <string name="plays_guitar">" • Plays guitar since was 10"</string>
+    <string name="swimming">" • Favorite sport: swimming"</string>
+    <string name="women_s_world_cup">" • Fans\' support and orientation - Women\'s World Cup 2019 in France"</string>
+    <string name="men_s_world_cup">" • Fans\' support and orientation - Men\'s World Cup 2018 in Russia"</string>
+    <string name="uefa_euro">" • Fans\' support and orientation - Uefa Euro 2016 in France"</string>
+    <string name="portuguese_teacher">" • Portuguese teacher for refugee Haitian women in 2011 in Brazil"</string>
+    <string name="android_developer">Android Developer</string>
+    <string name="about_me">About me</string>
+    <string name="active_listening">" • Active listening"</string>
+    <string name="client_relations">" • Client relations"</string>
+    <string name="teamwork">" • Teamwork"</string>
+    <string name="adaptability">" • Adaptability"</string>
+    <string name="determination">" • Determination"</string>
+    <string name="native_android_kotlin_java">" • Native Android (Kotlin + Java)"</string>
+    <string name="unit_tests">" • Unit tests"</string>
 </resources>

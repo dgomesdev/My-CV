@@ -61,16 +61,17 @@ fun Profile(
         Image(
             painter = painterResource(R.drawable.profile_picture),
             contentDescription = "Danilo Gomes photo",
-            modifier = Modifier.constrainAs(photo) {
-                top.linkTo(name.bottom, margin = 16.dp)
-                start.linkTo(name.start)
-                end.linkTo(name.end)
-            }
+            modifier = Modifier
+                .constrainAs(photo) {
+                    top.linkTo(name.bottom, margin = 16.dp)
+                    start.linkTo(name.start)
+                    end.linkTo(name.end)
+                }
                 .clip(CircleShape)
                 .size(200.dp)
         )
         Text(
-            "Android Developer",
+            stringResource(R.string.android_developer),
             modifier = modifier.constrainAs(title) {
                 top.linkTo(photo.bottom, margin = 16.dp)
                 start.linkTo(parent.start)
@@ -105,7 +106,7 @@ fun Profile(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    "About me",
+                    stringResource(R.string.about_me),
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(start = 8.dp)
@@ -113,8 +114,8 @@ fun Profile(
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                        contentDescription = if (expanded) "show less"
-                        else "show more"
+                        contentDescription = if (expanded) stringResource(R.string.show_less)
+                        else stringResource(R.string.show_more)
                     )
                 }
             }
@@ -160,18 +161,18 @@ fun Profile(
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                        contentDescription = if (expanded) "show less"
-                        else "show more"
+                        contentDescription = if (expanded) stringResource(R.string.show_less)
+                        else stringResource(R.string.show_more)
                     )
                 }
             }
             if (expanded) {
                 Column(modifier.padding(start = 8.dp, bottom = 8.dp)) {
-                    Text(" • Active listening")
-                    Text(" • Client relations")
-                    Text(" • Teamwork")
-                    Text(" • Adaptability")
-                    Text(" • Determination")
+                    Text(stringResource(R.string.active_listening))
+                    Text(stringResource(R.string.client_relations))
+                    Text(stringResource(R.string.teamwork))
+                    Text(stringResource(R.string.adaptability))
+                    Text(stringResource(R.string.determination))
                 }
             }
         }
@@ -209,8 +210,8 @@ fun Profile(
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                        contentDescription = if (expanded) "show less"
-                        else "show more"
+                        contentDescription = if (expanded) stringResource(R.string.show_less)
+                        else stringResource(R.string.show_more)
                     )
                 }
             }
@@ -218,10 +219,10 @@ fun Profile(
                 Column(
                     modifier.padding(start = 8.dp, bottom = 8.dp)
                 ) {
-                    Text(" • Native Android (Kotlin + Java")
+                    Text(stringResource(R.string.native_android_kotlin_java))
                     Text(" • MVVM")
-                    Text(" • Unit tests")
-                    Text(" • SQL")
+                    Text(stringResource(R.string.unit_tests))
+                    Text(" • SQLite")
                     Text(" • Git")
                 }
             }

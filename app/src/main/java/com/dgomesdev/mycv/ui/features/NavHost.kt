@@ -1,5 +1,6 @@
 package com.dgomesdev.mycv.ui.features
 
+import android.content.Context
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,7 +13,8 @@ import androidx.navigation.compose.composable
 fun CVNavHost(
     navController: NavHostController,
     modifier: Modifier,
-    onContactClick: OnContactClick
+    onContactClick: OnContactClick,
+    context: Context
 ) {
     NavHost(
         navController,
@@ -24,16 +26,16 @@ fun CVNavHost(
             Profile(padding)
         }
         composable(route = "Work experience") {
-            WorkExperiences(padding)
+            WorkExperiences(padding, context)
         }
         composable(route = "Education") {
-            Education(padding)
+            Education(padding, context)
         }
         composable(route = "Foreign languages") {
-            ForeignLanguages(padding)
+            ForeignLanguages(padding, context)
         }
         composable(route = "Other") {
-            Other(padding)
+            Other(padding,context)
         }
         composable(route = "Contact") {
             Contact(padding, onContactClick)

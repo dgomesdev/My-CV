@@ -1,5 +1,6 @@
 package com.dgomesdev.mycv.ui.features
 
+import android.content.Context
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -26,16 +27,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.dgomesdev.mycv.R
 
 @Composable
 fun Education(
-    modifier: Modifier
+    modifier: Modifier,
+    context: Context
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
-        Course(modifier = modifier, course = CourseExperience.Master)
-        Course(modifier = modifier, course = CourseExperience.Exchange)
-        Course(modifier = modifier, course = CourseExperience.Bachelor)
-        Course(modifier = modifier, course = CourseExperience.Technical)
+        Course(modifier = modifier, course = CourseExperience.Master(context))
+        Course(modifier = modifier, course = CourseExperience.Exchange(context))
+        Course(modifier = modifier, course = CourseExperience.Bachelor(context))
+        Course(modifier = modifier, course = CourseExperience.Technical(context))
     }
 }
 
@@ -92,36 +95,36 @@ sealed class CourseExperience(
     val endDate: String,
     val location: String
 ) {
-    object Master : CourseExperience(
-        "Master degree",
-        "International relations",
+    class Master(context: Context) : CourseExperience(
+        context.getString(R.string.master_degree),
+        context.getString(R.string.international_relations),
         "Université Jean Moulin Lyon 3",
         "09/2016",
         "09/2019",
         "Lyon, France"
     )
 
-    object Exchange : CourseExperience(
-        "Graduate",
-        "International Law",
+    class Exchange(context: Context) : CourseExperience(
+        context.getString(R.string.master_first_year),
+        context.getString(R.string.international_law),
         "MSAL - Moscow State University of Law",
         "09/2017",
         "06/2018",
         "Moscow, Russia"
     )
 
-    object Bachelor : CourseExperience(
-        "Bachelor",
-        "Law and Political Science",
+    class Bachelor(context: Context) : CourseExperience(
+        context.getString(R.string.bachelor),
+        context.getString(R.string.law_and_political_science),
         "Université Jean Moulin Lyon 3",
         "09/2013",
         "07/2016",
         "Lyon, France"
     )
 
-    object Technical : CourseExperience(
-        "Technical degree integrated to the High school",
-        "Informatics",
+    class Technical(context: Context) : CourseExperience(
+        context.getString(R.string.technical_degree),
+        context.getString(R.string.informatics),
         "Federal Institute of Education, Science and Technology",
         "02/2009",
         "11/2011",

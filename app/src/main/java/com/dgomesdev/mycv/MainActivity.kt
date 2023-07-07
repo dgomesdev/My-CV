@@ -1,6 +1,5 @@
 package com.dgomesdev.mycv
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.core.content.ContextCompat
 import com.dgomesdev.mycv.ui.features.CVApp
 import com.dgomesdev.mycv.ui.theme.MyCVTheme
 
@@ -19,12 +17,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyCVTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CVApp(this::openWebPage)
+                    CVApp(this::openWebPage, applicationContext)
                 }
             }
         }

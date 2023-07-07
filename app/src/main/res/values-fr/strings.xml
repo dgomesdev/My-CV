@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mon CV</string>
+    <string name="resume">Professionnel international, dynamique et motivé par un intérêt pour la
+        technologie et la résolution de problèmes, je suis à la recherche de nouveaux défis en tant
+        que développeur Android.\n\n
+        En tant que développeur d\'affaires export, j\'ai pu travailler avec des clients
+        internationaux, collaborer avec des équipes multiculturelles et développer ma capacité
+        d\'adaptation en matière de communication.\n\n
+        Ma volonté permanente d\'apprendre de nouvelles choses et mon aptitude à la programmation
+        m\'ont amené à étudier Kotlin et Java, l\'architecture pour les applications mobiles et d\'autres
+        connaissances liées à Android.\n\n
+        Connaissances que je souhaite mettre en pratique après ma reconversion professionelle en tant
+        que développeur mobile
+    </string>
+    <string name="profile">Profil</string>
+    <string name="work_experience">Expérience professionelle</string>
+    <string name="education">Education</string>
+    <string name="foreign_languages">Langues étrangères</string>
+    <string name="other">Autres</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
+    <string name="portuguese">Portugais</string>
+    <string name="contact">Contact</string>
+    <string name="language_options">Options de langue</string>
+    <string name="cv_sections">Sections du CV</string>
+    <string name="show_less">Montrer moins</string>
+    <string name="show_more">Montrer plus</string>
+    <string name="international_business_developer">Chargé d\'affaires export</string>
+    <string name="tech">Soutien aux entrprises françaises de la tech et de services, voulant entrer
+        dans le marché brésilien, avec des missions de prospections, mises en relations qualifiées,
+    étude de marché, veille informationnelle et des conseils d\'affaires</string>
+    <string name="international_sales">Commercial export</string>
+    <string name="industrial_parts">Prospection et vente à des clients sud-amércains voulant
+       acheter des pièces automtives et autres types de pièces industrielles</string>
+    <string name="industrial_valves">Prospection et vente à des clients des pays de langue portugaise
+        voulant acheter de la robinnetterie indudtrielle</string>
+    <string name="international_development_assistant">International development assistant</string>
+    <string name="consulting_firm">Support à l\'adaptation et traduction de l\'offre des services
+        d\'un cabinet de conseil spécialisé dans le financement de l\'innovation pour le marché
+        américain</string>
+    <string name="master_degree">Master</string>
+    <string name="international_relations">Relations Internationales</string>
+    <string name="master_first_year">M1 en échange</string>
+    <string name="international_law">Droit International</string>
+    <string name="bachelor">Licence</string>
+    <string name="law_and_political_science">Droit et Science Politique</string>
+    <string name="technical_degree">Diplôme technique intégré au lycée</string>
+    <string name="informatics">Informatique</string>
+    <string name="spanish">Espagnol</string>
+    <string name="italian">Italien</string>
+    <string name="german">Allemand</string>
+    <string name="russian">Russe</string>
+    <string name="advanced">Avancé</string>
+    <string name="fluent">Courant</string>
+    <string name="native_language">Langue native</string>
+    <string name="intermediary">Intermédiaire</string>
+    <string name="basic">Basique</string>
+    <string name="certifications">Certifications</string>
+    <string name="volunteering">Voluntariat</string>
+    <string name="curiosities">Curiosités sur moi</string>
+    <string name="chess_champion">" • Champion de jeu d\'échecs au lycée"</string>
+    <string name="trans_siberian_railway">" • J\'ai voyagé avec le train trans-sibérien"</string>
+    <string name="plays_guitar">" • J\'aime jouer de la guitare"</string>
+    <string name="swimming">" • Sport favori: natation"</string>
+    <string name="women_s_world_cup">" • Accueil de supporters - Coupe du monde féminine 2019 en France"</string>
+    <string name="men_s_world_cup">" • Accueil de supporters- Coupe du monde 2018 en Russie"</string>
+    <string name="uefa_euro">" • Accueil de supporters - Uefa Euro 2016 en France"</string>
+    <string name="portuguese_teacher">" • Professeur de portugais pour des refugiées haitiennes en 2011 au Brésil"</string>
+    <string name="android_developer">Développeur Android</string>
+    <string name="about_me">A propos de moi</string>
+    <string name="active_listening">" • Ecoute active"</string>
+    <string name="client_relations">" • Relationnel avec les clients"</string>
+    <string name="teamwork">" • Travail en équipe"</string>
+    <string name="adaptability">" • Adaptabilité"</string>
+    <string name="determination">" • Détermination"</string>
+    <string name="native_android_kotlin_java">" • Android natif (Kotlin + Java)"</string>
+    <string name="unit_tests">" • Tests unitaires"</string>
+</resources>
