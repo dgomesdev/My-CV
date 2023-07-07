@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 fun Other(
     modifier: Modifier
 ) {
-    Column(modifier.verticalScroll(rememberScrollState())) {
+    Column(Modifier.verticalScroll(rememberScrollState())) {
         OtherExperience(modifier = modifier, experience = Experience.Certifications)
         OtherExperience(modifier = modifier, experience = Experience.Volunteering)
         OtherExperience(modifier = modifier, experience = Experience.Hobbies)

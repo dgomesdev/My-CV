@@ -18,7 +18,7 @@ fun CVNavHost(
         startDestination = "Profile",
         modifier = modifier
     ) {
-        val padding = Modifier.padding(16.dp)
+        val padding = Modifier.padding(8.dp)
         composable(route = "Profile") {
             Profile(padding)
         }

@@ -5,6 +5,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -29,7 +30,7 @@ import androidx.compose.ui.unit.dp
 fun WorkExperiences(
     modifier: Modifier
 ) {
-    Column(modifier = modifier.verticalScroll(rememberScrollState())) {
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         Experience(modifier = modifier, job = JobExperience.BusinessFrance)
         Experience(modifier = modifier, job = JobExperience.Rodafuso)
         Experience(modifier = modifier, job = JobExperience.Stracau)
@@ -49,7 +50,7 @@ fun Experience(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        modifier = modifier
+        modifier = modifier.fillMaxWidth()
     ) {
         Row(
             modifier = Modifier.animateContentSize(

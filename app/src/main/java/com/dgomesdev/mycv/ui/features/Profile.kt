@@ -1,5 +1,8 @@
 package com.dgomesdev.mycv.ui.features
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,12 +40,12 @@ fun Profile(
     modifier: Modifier
 ) {
     ConstraintLayout(
-        modifier = modifier.verticalScroll(rememberScrollState())
+        modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
         val (name, photo, title, resume, softSkills, hardSkills) = createRefs()
         Text(
             "Danilo Gomes",
-            modifier = Modifier.constrainAs(name) {
+            modifier = modifier.constrainAs(name) {
                 top.linkTo(parent.top)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
@@ -61,15 +64,15 @@ fun Profile(
         )
         Text(
             "Android Developer",
-            modifier = Modifier.constrainAs(title) {
+            modifier = modifier.constrainAs(title) {
                 top.linkTo(photo.bottom, margin = 16.dp)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
             },
-            fontSize = 24.sp,
+            fontSize = 26.sp,
             fontWeight = FontWeight.Bold
         )
-        Card(Modifier.constrainAs(resume) {
+        Card(modifier.constrainAs(resume) {
             top.linkTo(title.bottom, margin = 16.dp)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
@@ -78,7 +81,14 @@ fun Profile(
                 mutableStateOf(false)
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = modifier
+                    .fillMaxWidth()
+                    .animateContentSize(
+                        animationSpec = spring(
+                            dampingRatio = Spring.DampingRatioMediumBouncy,
+                            stiffness = Spring.StiffnessLow
+                        )
+                    ),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -86,9 +96,9 @@ fun Profile(
                     "About me",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = modifier
+                    modifier = Modifier.padding(start = 8.dp)
                 )
-                IconButton(onClick = { expanded = !expanded }, modifier = modifier) {
+                IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                         contentDescription = if (expanded) "show less"
@@ -99,12 +109,12 @@ fun Profile(
             if (expanded) {
                 Text(
                     stringResource(R.string.resume),
-                    modifier = modifier,
+                    modifier = modifier.padding(8.dp),
                     textAlign = TextAlign.Justify
                 )
             }
         }
-        Card(Modifier.constrainAs(softSkills) {
+        Card(modifier.constrainAs(softSkills) {
             top.linkTo(resume.bottom, margin = 16.dp)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
@@ -113,7 +123,14 @@ fun Profile(
                 mutableStateOf(false)
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = modifier
+                    .fillMaxWidth()
+                    .animateContentSize(
+                        animationSpec = spring(
+                            dampingRatio = Spring.DampingRatioMediumBouncy,
+                            stiffness = Spring.StiffnessLow
+                        )
+                    ),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -121,9 +138,9 @@ fun Profile(
                     "Soft skills",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = modifier
+                    modifier = Modifier.padding(start = 8.dp)
                 )
-                IconButton(onClick = { expanded = !expanded }, modifier = modifier) {
+                IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                         contentDescription = if (expanded) "show less"
@@ -132,7 +149,7 @@ fun Profile(
                 }
             }
             if (expanded) {
-                Column(Modifier.padding(start = 16.dp, bottom = 16.dp)) {
+                Column(modifier.padding(start = 8.dp, bottom = 8.dp)) {
                     Text(" • Active listening")
                     Text(" • Client relations")
                     Text(" • Teamwork")
@@ -141,7 +158,7 @@ fun Profile(
                 }
             }
         }
-        Card(Modifier.constrainAs(hardSkills) {
+        Card(modifier.constrainAs(hardSkills) {
             top.linkTo(softSkills.bottom, margin = 16.dp)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
@@ -150,7 +167,14 @@ fun Profile(
                 mutableStateOf(false)
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = modifier
+                    .fillMaxWidth()
+                    .animateContentSize(
+                        animationSpec = spring(
+                            dampingRatio = Spring.DampingRatioMediumBouncy,
+                            stiffness = Spring.StiffnessLow
+                        )
+                    ),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -158,9 +182,9 @@ fun Profile(
                     "Hard skills",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = modifier
+                    modifier = Modifier.padding(start = 8.dp)
                 )
-                IconButton(onClick = { expanded = !expanded }, modifier = modifier) {
+                IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                         contentDescription = if (expanded) "show less"
@@ -169,7 +193,7 @@ fun Profile(
                 }
             }
             if (expanded) {
-                Column(Modifier.padding(start = 16.dp, bottom = 16.dp)) {
+                Column(modifier.padding(start = 8.dp, bottom = 8.dp)) {
                     Text(" • Native Android (Kotlin + Java")
                     Text(" • MVVM")
                     Text(" • Unit tests")
@@ -184,5 +208,5 @@ fun Profile(
 @Preview(showBackground = true)
 @Composable
 fun ProfilePreview() {
-    Profile(modifier = Modifier.padding(16.dp))
+    Profile(modifier = Modifier.padding(8.dp))
 }

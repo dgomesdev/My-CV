@@ -5,6 +5,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -29,7 +30,7 @@ import androidx.compose.ui.unit.dp
 fun Education(
     modifier: Modifier
 ) {
-    Column(modifier.verticalScroll(rememberScrollState())) {
+    Column(Modifier.verticalScroll(rememberScrollState())) {
         Course(modifier = modifier, course = CourseExperience.Master)
         Course(modifier = modifier, course = CourseExperience.Exchange)
         Course(modifier = modifier, course = CourseExperience.Bachelor)
@@ -50,7 +51,7 @@ fun Course(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        modifier = modifier
+        modifier = modifier.fillMaxWidth()
     ) {
         Row(
             modifier = Modifier.animateContentSize(
