@@ -1,9 +1,13 @@
 package com.dgomesdev.mycv.ui.features
 
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
@@ -16,6 +20,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -26,11 +31,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.dgomesdev.mycv.R
+import com.dgomesdev.mycv.ui.theme.DgomesDevGreen
 import kotlinx.coroutines.launch
 
 
@@ -40,6 +48,7 @@ fun CVApp() {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     Scaffold(
+        backgroundColor = MaterialTheme.colorScheme.background,
         scaffoldState = scaffoldState,
         topBar = { CVTopBar(
             onNavigationIconClick = {
@@ -48,6 +57,7 @@ fun CVApp() {
                 }
             }
         ) },
+        drawerBackgroundColor = Color.Black,
         drawerContent = {
             Image(
                 painter = painterResource(R.drawable.dgomesdev_logo),
@@ -82,6 +92,7 @@ fun CVTopBar(
 ) {
     val context = LocalContext.current
     TopAppBar(
+        backgroundColor = DgomesDevGreen,
         title = { Text("My CV") },
         navigationIcon = {
             IconButton(
@@ -118,22 +129,24 @@ fun Sections(
     Column {
         val sections = listOf(
             "Profile",
-            "Work experiences",
+            "Work experience",
             "Education",
-            "Languages",
+            "Foreign languages",
             "Other"
         )
         for (section in sections) {
-            Text(
-                section,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp)
-                    .clickable {
-                        onNavigate(section)
-                        onExpandChange()
-                    }
-            )
+            Row(modifier = Modifier.background(color = DgomesDevGreen).border(BorderStroke(1.dp, Color.Black))) {
+                Text(
+                    section,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                        .clickable {
+                            onNavigate(section)
+                            onExpandChange()
+                        }
+                )
+            }
         }
     }
 }
@@ -147,7 +160,9 @@ fun CVBottomBar(
         mutableStateOf(0)
     }
     val tabs = listOf(screen, "Contact")
-    NavigationBar {
+    NavigationBar(
+        containerColor = DgomesDevGreen
+    ) {
         tabs.forEachIndexed { index, tab ->
             NavigationBarItem(
                 selected = currentScreen == index,
@@ -168,4 +183,10 @@ fun CVBottomBar(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun Preview() {
+    CVApp()
 }

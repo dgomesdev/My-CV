@@ -6,6 +6,8 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -27,7 +29,7 @@ import androidx.compose.ui.unit.dp
 fun Education(
     modifier: Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(modifier.verticalScroll(rememberScrollState())) {
         Course(modifier = modifier, course = CourseExperience.Master)
         Course(modifier = modifier, course = CourseExperience.Exchange)
         Course(modifier = modifier, course = CourseExperience.Bachelor)
@@ -81,7 +83,14 @@ fun Course(
     }
 }
 
-sealed class CourseExperience(val degree: String, val course: String, val institution: String, val beginDate: String, val endDate: String, val location: String) {
+sealed class CourseExperience(
+    val degree: String,
+    val course: String,
+    val institution: String,
+    val beginDate: String,
+    val endDate: String,
+    val location: String
+) {
     object Master : CourseExperience(
         "Master degree",
         "International relations",

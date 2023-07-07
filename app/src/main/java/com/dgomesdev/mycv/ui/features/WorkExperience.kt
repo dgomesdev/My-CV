@@ -6,6 +6,8 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -27,7 +29,7 @@ import androidx.compose.ui.unit.dp
 fun WorkExperiences(
     modifier: Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier.verticalScroll(rememberScrollState())) {
         Experience(modifier = modifier, job = JobExperience.BusinessFrance)
         Experience(modifier = modifier, job = JobExperience.Rodafuso)
         Experience(modifier = modifier, job = JobExperience.Stracau)

@@ -22,14 +22,14 @@ fun CVNavHost(
         composable(route = "Profile") {
             Profile(padding)
         }
-        composable(route = "Work Experiences") {
+        composable(route = "Work experience") {
             WorkExperiences(padding)
         }
         composable(route = "Education") {
             Education(padding)
         }
-        composable(route = "Languages") {
-            Languages(padding)
+        composable(route = "Foreign languages") {
+            ForeignLanguages(padding)
         }
         composable(route = "Other") {
             Other(padding)
