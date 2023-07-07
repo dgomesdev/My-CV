@@ -34,29 +34,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.dgomesdev.mycv.R
 import com.dgomesdev.mycv.ui.theme.DgomesDevGreen
 import kotlinx.coroutines.launch
 
+typealias OnContactClick = (String) -> Unit
 
 @Composable
-fun CVApp() {
+fun CVApp(
+    onContactClick: OnContactClick
+) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     Scaffold(
         backgroundColor = MaterialTheme.colorScheme.background,
         scaffoldState = scaffoldState,
-        topBar = { CVTopBar(
-            onNavigationIconClick = {
-                scope.launch {
-                    scaffoldState.drawerState.open()
+        topBar = {
+            CVTopBar(
+                onNavigationIconClick = {
+                    scope.launch {
+                        scaffoldState.drawerState.open()
+                    }
                 }
-            }
-        ) },
+            )
+        },
         drawerBackgroundColor = Color.Black,
         drawerContent = {
             Image(
@@ -81,7 +85,8 @@ fun CVApp() {
     ) {
         CVNavHost(
             navController = navController,
-            modifier = Modifier.padding(it)
+            modifier = Modifier.padding(it),
+            onContactClick
         )
     }
 }
@@ -135,7 +140,11 @@ fun Sections(
             "Other"
         )
         for (section in sections) {
-            Row(modifier = Modifier.background(color = DgomesDevGreen).border(BorderStroke(1.dp, Color.Black))) {
+            Row(
+                modifier = Modifier
+                    .background(color = DgomesDevGreen)
+                    .border(BorderStroke(1.dp, Color.Black))
+            ) {
                 Text(
                     section,
                     modifier = Modifier
@@ -183,10 +192,4 @@ fun CVBottomBar(
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun Preview() {
-    CVApp()
 }

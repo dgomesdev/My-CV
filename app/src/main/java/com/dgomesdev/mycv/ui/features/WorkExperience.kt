@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -30,7 +31,7 @@ import androidx.compose.ui.unit.dp
 fun WorkExperiences(
     modifier: Modifier
 ) {
-    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+    Column(modifier = modifier.verticalScroll(rememberScrollState())) {
         Experience(modifier = modifier, job = JobExperience.BusinessFrance)
         Experience(modifier = modifier, job = JobExperience.Rodafuso)
         Experience(modifier = modifier, job = JobExperience.Stracau)
@@ -50,28 +51,21 @@ fun Experience(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        modifier = modifier.fillMaxWidth()
-    ) {
-        Row(
-            modifier = Modifier.animateContentSize(
+        modifier = modifier
+            .fillMaxWidth()
+            .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
                     stiffness = Spring.StiffnessLow
                 )
             )
+    ) {
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(
-                modifier = modifier.weight(1f)
-            ) {
-                Text("${job.job} at ${job.company} - ${job.beginDate} - ${job.endDate}")
-                if (expanded) {
-                    Column(modifier = Modifier.padding(top = 16.dp)) {
-                        Text(job.location)
-                        Text(job.description, modifier = Modifier.padding(top = 16.dp))
-                    }
-                }
-            }
-            IconButton(onClick = { expanded = !expanded }) {
+            Text("${job.job} at ${job.company}", modifier = modifier.weight(4f))
+            IconButton(onClick = { expanded = !expanded }, modifier = modifier.weight(1f)) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                     contentDescription = if (expanded) "show less"
@@ -79,10 +73,24 @@ fun Experience(
                 )
             }
         }
+        if (expanded) {
+            Column(modifier = modifier.padding(8.dp)) {
+                Text("${job.beginDate} - ${job.endDate}")
+                Text(job.location, modifier = Modifier.padding(top = 16.dp))
+                Text(job.description, modifier = Modifier.padding(top = 16.dp))
+            }
+        }
     }
 }
 
-sealed class JobExperience(val job: String, val company: String, val beginDate: String, val endDate: String, val location: String, val description: String) {
+sealed class JobExperience(
+    val job: String,
+    val company: String,
+    val beginDate: String,
+    val endDate: String,
+    val location: String,
+    val description: String
+) {
     object BusinessFrance : JobExperience(
         "International business developer",
         "Business France",

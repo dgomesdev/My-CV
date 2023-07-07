@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -30,7 +31,7 @@ import androidx.compose.ui.unit.dp
 fun Other(
     modifier: Modifier
 ) {
-    Column(Modifier.verticalScroll(rememberScrollState())) {
+    Column(modifier.verticalScroll(rememberScrollState())) {
         OtherExperience(modifier = modifier, experience = Experience.Certifications)
         OtherExperience(modifier = modifier, experience = Experience.Volunteering)
         OtherExperience(modifier = modifier, experience = Experience.Hobbies)
@@ -46,38 +47,37 @@ fun OtherExperience(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        modifier = modifier.fillMaxWidth()
-    ) {
-        var expanded by remember {
-            mutableStateOf(false)
-        }
-        Row(
-            modifier = Modifier.animateContentSize(
+        modifier = modifier
+            .fillMaxWidth()
+            .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
                     stiffness = Spring.StiffnessLow
                 )
             )
+    ) {
+        var expanded by remember {
+            mutableStateOf(false)
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(
-                modifier = modifier.weight(1f)
-            ) {
-                Text(experience.name)
-                if (expanded) {
-                    Column(modifier = Modifier.padding(top = 16.dp)) {
-                        Text(experience.firstTopic)
-                        Text(experience.secondTopic, modifier = Modifier.padding(top = 16.dp))
-                        Text(experience.thirdTopic, modifier = Modifier.padding(top = 16.dp))
-                        Text(experience.fourthTopic, modifier = Modifier.padding(top = 16.dp))
-                    }
-                }
-            }
-            IconButton(onClick = { expanded = !expanded }) {
+            Text(experience.name, modifier = modifier.weight(3f))
+            IconButton(onClick = { expanded = !expanded }, modifier = modifier.weight(1f)) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                     contentDescription = if (expanded) "show less"
                     else "show more"
                 )
+            }
+        }
+        if (expanded) {
+            Column(modifier = modifier.padding(8.dp)) {
+                Text(experience.firstTopic)
+                Text(experience.secondTopic, modifier = Modifier.padding(top = 16.dp))
+                Text(experience.thirdTopic, modifier = Modifier.padding(top = 16.dp))
+                Text(experience.fourthTopic, modifier = Modifier.padding(top = 16.dp))
             }
         }
     }

@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -30,7 +31,7 @@ import androidx.compose.ui.unit.dp
 fun Education(
     modifier: Modifier
 ) {
-    Column(Modifier.verticalScroll(rememberScrollState())) {
+    Column(modifier.verticalScroll(rememberScrollState())) {
         Course(modifier = modifier, course = CourseExperience.Master)
         Course(modifier = modifier, course = CourseExperience.Exchange)
         Course(modifier = modifier, course = CourseExperience.Bachelor)
@@ -51,34 +52,33 @@ fun Course(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        modifier = modifier.fillMaxWidth()
-    ) {
-        Row(
-            modifier = Modifier.animateContentSize(
+        modifier = modifier
+            .fillMaxWidth()
+            .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
                     stiffness = Spring.StiffnessLow
                 )
             )
+    ) {
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(
-                modifier = modifier.weight(1f)
-            ) {
-                Text("${course.degree} - ${course.course}")
-                if (expanded) {
-                    Column(modifier = Modifier.padding(top = 16.dp)) {
-                        Text("${course.beginDate} - ${course.endDate}")
-                        Text(course.institution, modifier = Modifier.padding(top = 16.dp))
-                        Text(course.location, modifier = Modifier.padding(top = 16.dp))
-                    }
-                }
-            }
-            IconButton(onClick = { expanded = !expanded }) {
+            Text("${course.degree} - ${course.course}", modifier = modifier.weight(3f))
+            IconButton(onClick = { expanded = !expanded }, modifier = modifier.weight(1f)) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                     contentDescription = if (expanded) "show less"
                     else "show more"
                 )
+            }
+        }
+        if (expanded) {
+            Column(modifier = modifier.padding(8.dp)) {
+                Text("${course.beginDate} - ${course.endDate}")
+                Text(course.institution, modifier = Modifier.padding(top = 16.dp))
+                Text(course.location, modifier = Modifier.padding(top = 16.dp))
             }
         }
     }

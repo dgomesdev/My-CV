@@ -13,6 +13,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,7 @@ import androidx.compose.ui.unit.dp
 fun ForeignLanguages(
     modifier: Modifier
 ) {
-    Column(Modifier.verticalScroll(rememberScrollState())) {
+    Column(modifier.verticalScroll(rememberScrollState())) {
         LanguageCard(modifier = modifier, Language.Portuguese)
         LanguageCard(modifier = modifier, Language.French)
         LanguageCard(modifier = modifier, Language.English)
@@ -46,14 +47,17 @@ fun LanguageCard(
         ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = modifier.fillMaxWidth().padding(horizontal = 8.dp)
+                modifier = modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Row {
+                Row(
+                    modifier
+                ) {
                     Text(language.flag)
                     Spacer(Modifier.padding(horizontal = 8.dp))
                     Text(language.language)
                 }
-                Text(language.level)
+                Text(language.level, modifier)
             }
         }
     }

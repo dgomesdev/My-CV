@@ -11,7 +11,8 @@ import androidx.navigation.compose.composable
 @Composable
 fun CVNavHost(
     navController: NavHostController,
-    modifier: Modifier
+    modifier: Modifier,
+    onContactClick: OnContactClick
 ) {
     NavHost(
         navController,
@@ -35,7 +36,7 @@ fun CVNavHost(
             Other(padding)
         }
         composable(route = "Contact") {
-            Contact(padding)
+            Contact(padding, onContactClick)
         }
     }
 }
