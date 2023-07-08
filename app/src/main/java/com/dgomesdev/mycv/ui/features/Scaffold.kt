@@ -14,7 +14,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.rememberScaffoldState
@@ -35,8 +34,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.dgomesdev.mycv.R
@@ -44,11 +45,13 @@ import com.dgomesdev.mycv.ui.theme.DgomesDevGreen
 import kotlinx.coroutines.launch
 
 typealias OnContactClick = (String) -> Unit
+typealias OnLanguageChange = (String) -> Unit
 
 @Composable
 fun CVApp(
     onContactClick: OnContactClick,
-    context: Context
+    context: Context,
+    onLanguageChange: OnLanguageChange
 ) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
@@ -62,7 +65,8 @@ fun CVApp(
                     scope.launch {
                         scaffoldState.drawerState.open()
                     }
-                }
+                },
+                onLanguageChange = onLanguageChange
             )
         },
         drawerBackgroundColor = Color.Black,
@@ -98,7 +102,8 @@ fun CVApp(
 
 @Composable
 fun CVTopBar(
-    onNavigationIconClick: () -> Unit
+    onNavigationIconClick: () -> Unit,
+    onLanguageChange: OnLanguageChange
 ) {
     var expandedMenu by remember {
         mutableStateOf(false)
@@ -119,12 +124,13 @@ fun CVTopBar(
         actions = {
             IconButton(onClick = { expandedMenu = !expandedMenu }) {
                 Icon(
-                    imageVector = Icons.Filled.Info,
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_language),
                     contentDescription = stringResource(R.string.language_options)
                 )
                 LanguageMenu(
                     expandedMenu = expandedMenu,
-                    onExpandChange = { expandedMenu = !expandedMenu }
+                    onExpandChange = { expandedMenu = !expandedMenu },
+                    onLanguageChange = onLanguageChange
                     )
             }
         }
@@ -168,12 +174,13 @@ fun Sections(
 @Composable
 fun LanguageMenu(
     expandedMenu: Boolean,
-    onExpandChange: () -> Unit
+    onExpandChange: () -> Unit,
+    onLanguageChange: OnLanguageChange
 ) {
     DropdownMenu(expanded = expandedMenu, onDismissRequest = { onExpandChange() }) {
-        DropdownMenuItem({Text(stringResource(R.string.english))}, onClick = { onExpandChange() })
-        DropdownMenuItem({Text(stringResource(R.string.french))}, onClick = { onExpandChange() })
-        DropdownMenuItem({Text(stringResource(R.string.portuguese))}, onClick = { onExpandChange() })
+        DropdownMenuItem({Text(stringResource(R.string.english))}, onClick = { onExpandChange() ; onLanguageChange("en")})
+        DropdownMenuItem({Text(stringResource(R.string.french))}, onClick = { onExpandChange() ; onLanguageChange("fr")})
+        DropdownMenuItem({Text(stringResource(R.string.portuguese))}, onClick = { onExpandChange() ; onLanguageChange("pt")})
     }
 }
 
