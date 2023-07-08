@@ -69,11 +69,10 @@
     <string name="portuguese_teacher">" • Professeur de portugais pour des refugiées haitiennes en 2011 au Brésil"</string>
     <string name="android_developer">Développeur Android</string>
     <string name="about_me">A propos de moi</string>
-    <string name="active_listening">" • Ecoute active"</string>
-    <string name="client_relations">" • Relationnel avec les clients"</string>
+    <string name="international_mentality">" • Ecoute active"</string>
+    <string name="interpersonal_skills">" • Relationnel avec les clients"</string>
     <string name="teamwork">" • Travail en équipe"</string>
     <string name="adaptability">" • Adaptabilité"</string>
-    <string name="determination">" • Détermination"</string>
+    <string name="analytical_skill">" • Capacité d'analyse"</string>
     <string name="native_android_kotlin_java">" • Android natif (Kotlin + Java)"</string>
-    <string name="unit_tests">" • Tests unitaires"</string>
 </resources>

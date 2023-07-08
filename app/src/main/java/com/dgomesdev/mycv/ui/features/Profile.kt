@@ -168,11 +168,11 @@ fun Profile(
             }
             if (expanded) {
                 Column(modifier.padding(start = 8.dp, bottom = 8.dp)) {
-                    Text(stringResource(R.string.active_listening))
-                    Text(stringResource(R.string.client_relations))
+                    Text(stringResource(R.string.international_mentality))
+                    Text(stringResource(R.string.interpersonal_skills))
                     Text(stringResource(R.string.teamwork))
                     Text(stringResource(R.string.adaptability))
-                    Text(stringResource(R.string.determination))
+                    Text(stringResource(R.string.analytical_skill))
                 }
             }
         }
@@ -221,7 +221,7 @@ fun Profile(
                 ) {
                     Text(stringResource(R.string.native_android_kotlin_java))
                     Text(" • MVVM")
-                    Text(stringResource(R.string.unit_tests))
+                    Text(" • Jetpack Compose")
                     Text(" • SQLite")
                     Text(" • Git")
                 }

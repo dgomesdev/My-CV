@@ -178,9 +178,9 @@ fun LanguageMenu(
     onLanguageChange: OnLanguageChange
 ) {
     DropdownMenu(expanded = expandedMenu, onDismissRequest = { onExpandChange() }) {
-        DropdownMenuItem({Text(stringResource(R.string.english))}, onClick = { onExpandChange() ; onLanguageChange("en")})
-        DropdownMenuItem({Text(stringResource(R.string.french))}, onClick = { onExpandChange() ; onLanguageChange("fr")})
-        DropdownMenuItem({Text(stringResource(R.string.portuguese))}, onClick = { onExpandChange() ; onLanguageChange("pt")})
+        DropdownMenuItem({Text("English")}, onClick = { onExpandChange() ; onLanguageChange("en")})
+        DropdownMenuItem({Text("Français")}, onClick = { onExpandChange() ; onLanguageChange("fr")})
+        DropdownMenuItem({Text("Português")}, onClick = { onExpandChange() ; onLanguageChange("pt")})
     }
 }
 

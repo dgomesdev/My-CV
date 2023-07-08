@@ -63,11 +63,10 @@
     <string name="portuguese_teacher">" • Portuguese teacher for refugee Haitian women in 2011 in Brazil"</string>
     <string name="android_developer">Android Developer</string>
     <string name="about_me">About me</string>
-    <string name="active_listening">" • Active listening"</string>
-    <string name="client_relations">" • Client relations"</string>
+    <string name="international_mentality">" • International mentality "</string>
+    <string name="interpersonal_skills">" • Interpersonal skills"</string>
     <string name="teamwork">" • Teamwork"</string>
     <string name="adaptability">" • Adaptability"</string>
-    <string name="determination">" • Determination"</string>
+    <string name="analytical_skill">" • Analytical skill"</string>
     <string name="native_android_kotlin_java">" • Native Android (Kotlin + Java)"</string>
-    <string name="unit_tests">" • Unit tests"</string>
 </resources>
