@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CVApp(this::openWebPage, applicationContext, this::changeLanguage)
+                    CVApp(this::openWebPage, this, this::changeLanguage)
                 }
             }
         }

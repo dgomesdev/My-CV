@@ -55,6 +55,9 @@ fun CVApp(
 ) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
+    var sections  by remember {
+        mutableStateOf(Pair("Profile", context.getString(R.string.profile)))
+    }
     val scope = rememberCoroutineScope()
     Scaffold(
         backgroundColor = MaterialTheme.colorScheme.background,
@@ -81,13 +84,14 @@ fun CVApp(
                     scope.launch {
                         scaffoldState.drawerState.close()
                     }
-                }
+                },
+                onScreenChange = { sections = it }
             )
         },
         bottomBar = {
             CVBottomBar(
                 onNavigate = { navController.navigate(it) },
-                screen = "Profile"
+                sections = sections
             )
         }
     ) {
@@ -140,7 +144,8 @@ fun CVTopBar(
 @Composable
 fun Sections(
     onNavigate: (String) -> Unit,
-    onExpandChange: () -> Unit
+    onExpandChange: () -> Unit,
+    onScreenChange: (Pair<String, String>) -> Unit
 ) {
     Column {
         val sections = mapOf(
@@ -151,6 +156,7 @@ fun Sections(
             "Other" to stringResource(R.string.other)
         )
         for (section in sections) {
+            val screen = Pair(section.key, section.value)
             Row(
                 modifier = Modifier
                     .background(color = DgomesDevGreen)
@@ -163,6 +169,7 @@ fun Sections(
                         .padding(16.dp)
                         .clickable {
                             onNavigate(section.key)
+                            onScreenChange(screen)
                             onExpandChange()
                         }
                 )
@@ -187,12 +194,12 @@ fun LanguageMenu(
 @Composable
 fun CVBottomBar(
     onNavigate: (String) -> Unit,
-    screen: String
+    sections: Pair<String, String>
 ) {
     var currentScreen by rememberSaveable {
         mutableStateOf(0)
     }
-    val tabs = listOf(screen, "Contact")
+    val tabs = listOf(sections.first, "Contact")
     NavigationBar(
         containerColor = DgomesDevGreen
     ) {
@@ -209,11 +216,21 @@ fun CVBottomBar(
                 },
                 label = {
                     Text(
-                        if (index == 0) tab
+                        if (index == 0) sections.second
                         else stringResource(R.string.contact)
                     )
                 }
             )
         }
     }
+}
+
+class Sections(context: Context) {
+    val list = mapOf(
+    "Profile" to context.getString(R.string.profile),
+    "Work experience" to context.getString(R.string.work_experience),
+    "Education" to context.getString(R.string.education),
+    "Foreign languages" to context.getString(R.string.foreign_languages),
+    "Other" to context.getString(R.string.other)
+    )
 }

@@ -69,19 +69,19 @@ sealed class Language(val flag: String, val language: String, val level: String)
 
     class English(context: Context) : Language(
         "\uD83C\uDDFA\uD83C\uDDF8",
-        context.getString(R.string.spanish),
+        context.getString(R.string.english),
         context.getString(R.string.advanced)
     )
 
     class French(context: Context) : Language(
         "\uD83C\uDDEB\uD83C\uDDF7",
-        context.getString(R.string.spanish),
+        context.getString(R.string.french),
         context.getString(R.string.fluent)
     )
 
     class Portuguese(context: Context) : Language(
         "\uD83C\uDDE7\uD83C\uDDF7",
-        context.getString(R.string.spanish),
+        context.getString(R.string.portuguese),
         context.getString(R.string.native_language)
     )
 

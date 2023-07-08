@@ -16,9 +16,6 @@
     <string name="education">Formação</string>
     <string name="foreign_languages">Idiomas</string>
     <string name="other">Outros</string>
-    <string name="english">Inglês</string>
-    <string name="french">Francês</string>
-    <string name="portuguese">Português</string>
     <string name="contact">Contato</string>
     <string name="language_options">Escolher idioma</string>
     <string name="cv_sections">Seçoes do CV</string>
@@ -44,6 +41,9 @@
     <string name="law_and_political_science">Direito e Ciêcia Política</string>
     <string name="technical_degree">Ensino médio integrado ao técnico</string>
     <string name="informatics">Informatica</string>
+    <string name="english">Inglês</string>
+    <string name="french">Francês</string>
+    <string name="portuguese">Português</string>
     <string name="spanish">Espanhol</string>
     <string name="italian">Italiano</string>
     <string name="german">Alemão</string>

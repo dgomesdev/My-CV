@@ -13,9 +13,6 @@
     <string name="education">Education</string>
     <string name="foreign_languages">Foreign languages</string>
     <string name="other">Other</string>
-    <string name="english">English</string>
-    <string name="french">French</string>
-    <string name="portuguese">Portuguese</string>
     <string name="contact">Contact</string>
     <string name="language_options">Language options</string>
     <string name="cv_sections">CV sections</string>
@@ -41,6 +38,9 @@
     <string name="law_and_political_science">Law and Political Science</string>
     <string name="technical_degree">Technical degree integrated to High School</string>
     <string name="informatics">Informatics</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="portuguese">Portuguese</string>
     <string name="spanish">Spanish</string>
     <string name="italian">Italian</string>
     <string name="german">German</string>
