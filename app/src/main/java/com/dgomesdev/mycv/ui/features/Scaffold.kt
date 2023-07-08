@@ -224,13 +224,3 @@ fun CVBottomBar(
         }
     }
 }
-
-class Sections(context: Context) {
-    val list = mapOf(
-    "Profile" to context.getString(R.string.profile),
-    "Work experience" to context.getString(R.string.work_experience),
-    "Education" to context.getString(R.string.education),
-    "Foreign languages" to context.getString(R.string.foreign_languages),
-    "Other" to context.getString(R.string.other)
-    )
-}
