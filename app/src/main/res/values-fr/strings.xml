@@ -4,14 +4,13 @@
     <string name="resume">Professionnel international, dynamique et motivé par un intérêt pour la
         technologie et la résolution de problèmes, je suis à la recherche de nouveaux défis en tant
         que développeur Android.\n\n
-        En tant que développeur d\'affaires export, j\'ai pu travailler avec des clients
+        En 4 ans en tant que développeur d\'affaires export, j\'ai pu travailler avec des clients
         internationaux, collaborer avec des équipes multiculturelles et développer ma capacité
         d\'adaptation en matière de communication.\n\n
         Ma volonté permanente d\'apprendre de nouvelles choses et mon aptitude à la programmation
         m\'ont amené à étudier Kotlin et Java, l\'architecture pour les applications mobiles et d\'autres
         connaissances liées à Android.\n\n
-        Connaissances que je souhaite mettre en pratique après ma reconversion professionelle en tant
-        que développeur mobile
+        Connaissances que je souhaite mettre en pratique en tant que développeur mobile
     </string>
     <string name="profile">Profil</string>
     <string name="work_experience">Expérience professionelle</string>
@@ -69,8 +68,8 @@
     <string name="portuguese_teacher">" • Professeur de portugais pour des refugiées haitiennes en 2011 au Brésil"</string>
     <string name="android_developer">Développeur Android</string>
     <string name="about_me">A propos de moi</string>
-    <string name="international_mentality">" • Ecoute active"</string>
-    <string name="interpersonal_skills">" • Relationnel avec les clients"</string>
+    <string name="international_mentality">" • Mentalité internationale"</string>
+    <string name="interpersonal_skills">" • Capacités relationnelles"</string>
     <string name="teamwork">" • Travail en équipe"</string>
     <string name="adaptability">" • Adaptabilité"</string>
     <string name="analytical_skill">" • Capacité d'analyse"</string>

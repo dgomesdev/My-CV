@@ -3,14 +3,13 @@
     <string name="app_name">Meu CV</string>
     <string name="resume">Profissional internacional, dinâmico e motivado pelo interesse em
         tecnologia e solução de problemas, estou buscando novos desafios como desenvolvedor Android.\n\n
-        Enquanto desenvolvedor de negócios internacionais, pude trabalhar com clientes estrangeiros,
+        Em 4 anos como desenvolvedor de negócios internacionais, pude trabalhar com clientes estrangeiros,
         colaborei com sucesso com equipes multiculturais e desenvolvi a aptabilidade de minha
         comunicação.\n\n
         Minha vontade constante de aprender coisas novas e minha aptidão para programação me levaram
         a estudar Kotlin e Java, arquitetura para aplicativos móveis e outros conhecimentos
         relacionados ao desenvolvimento Android.\n\n
-        Conhecimentos que quero colocar em prática após minha transição de carreira como desenvolvedor
-        de aplicativos móveis</string>
+        Conhecimentos que quero colocar em prática como desenvolvedor de aplicativos móveis</string>
     <string name="profile">Perfil</string>
     <string name="work_experience">Experiência profissional</string>
     <string name="education">Formação</string>
@@ -22,7 +21,7 @@
     <string name="show_less">Mostrar menos</string>
     <string name="show_more">Mostrar mais</string>
     <string name="international_business_developer">Desenvolvedor de negócios internacionais</string>
-    <string name="tech">Apois às empresas francesas de tecnologia e serviços que desejam entrar no
+    <string name="tech">Apoio às empresas francesas de tecnologia e serviços que desejam entrar no
         mercado brasileiro, com missões de prospecção, apresentações qualificadas, pesquisa de mercado,
         monitoramento de informações e consultoria comercial</string>
     <string name="international_sales">Analista de comércio exterior</string>
@@ -58,7 +57,7 @@
     <string name="curiosities">Curiosidades sobre mim</string>
     <string name="chess_champion">" • Campeão de xadrez no Ensino Médio"</string>
     <string name="trans_siberian_railway">" • Viajei no trem trans-siberiano"</string>
-    <string name="plays_guitar">" • Adoro tocar violão"</string>
+    <string name="plays_guitar">" • Gosto de tocar violão"</string>
     <string name="swimming">" • Esporte favorito: natação"</string>
     <string name="women_s_world_cup">" • Orientação de torcedores - Copa do mundo feminina de 2019 na França"</string>
     <string name="men_s_world_cup">" • Orientação de torcedores - Copa do mundo de 2018 na Russia"</string>
