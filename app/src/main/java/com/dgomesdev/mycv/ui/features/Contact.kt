@@ -25,7 +25,7 @@ import com.dgomesdev.mycv.R
 @Composable
 fun Contact(
     modifier: Modifier,
-    onContactClick: OnContactClick
+    onContactClick: OnContactClick,
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
         ContactCard(modifier = modifier, contactInfo = ContactInfo.Site, onContactClick)
@@ -33,6 +33,7 @@ fun Contact(
         ContactCard(modifier = modifier, contactInfo = ContactInfo.LinkedIn, onContactClick)
         ContactCard(modifier = modifier, contactInfo = ContactInfo.Mail, onContactClick)
         ContactCard(modifier = modifier, contactInfo = ContactInfo.WhatsApp, onContactClick)
+        ContactCard(modifier = modifier, contactInfo = ContactInfo.PlayStore, onContactClick)
     }
 }
 
@@ -40,7 +41,7 @@ fun Contact(
 fun ContactCard(
     modifier: Modifier,
     contactInfo: ContactInfo,
-    onContactClick: OnContactClick
+    onContactClick: OnContactClick,
 ) {
     Column {
         Card(
@@ -107,5 +108,11 @@ sealed class ContactInfo(val logo: Int, val info: String, val link: String) {
         R.drawable.whatsapp_logo,
         "WhatsApp",
         "https://wa.me/5511936186593"
+    )
+
+    object PlayStore : ContactInfo(
+        R.drawable.google_play,
+        "Play store page",
+        "https://play.google.com/store/apps/developer?id=Dgomes+Dev"
     )
 }
