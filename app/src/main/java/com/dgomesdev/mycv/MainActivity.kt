@@ -3,7 +3,6 @@ package com.dgomesdev.mycv
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -14,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.core.os.LocaleListCompat
 import com.dgomesdev.mycv.ui.features.CVApp
 import com.dgomesdev.mycv.ui.theme.MyCVTheme
-import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

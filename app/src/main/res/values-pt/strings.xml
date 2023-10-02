@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Meu CV</string>
-    <string name="resume">Profissional internacional, dinâmico e motivado pelo interesse em
-        tecnologia e solução de problemas, estou buscando novos desafios como desenvolvedor Android.\n\n
-        Em 4 anos como desenvolvedor de negócios internacionais, pude trabalhar com clientes estrangeiros,
-        colaborei com sucesso com equipes multiculturais e desenvolvi a aptabilidade de minha
-        comunicação.\n\n
-        Minha vontade constante de aprender coisas novas e minha aptidão para programação me levaram
-        a estudar Kotlin e Java, arquitetura para aplicativos móveis e outros conhecimentos
-        relacionados ao desenvolvimento Android.\n\n
-        Conhecimentos que quero colocar em prática como desenvolvedor de aplicativos móveis</string>
+    <string name="resume">Após 10 anos de experiências acadêmicas e profissionais na área de relações
+        internacionais percebi que minha vocação era ser Desenvolvedor mobile.\n\nEstas experiências me
+        deram a oportunidade de desenvolver habilidades como línguas estrangeiras, comunicação direta
+        com o cliente e visão comercial.\n\nProcuro no momento uma oportunidade profissional para
+        concretizar esta transição de carreira, contribuindo em projetos de aplicações Android que
+        forneçam soluções impactantes e úteis aos problemas dos clientes.
+</string>
     <string name="profile">Perfil</string>
     <string name="work_experience">Experiência profissional</string>
     <string name="education">Formação</string>
@@ -33,13 +30,13 @@
     <string name="consulting_firm">Apoio à adaptação e tradução da oferta de serviços de uma empresa
         consultoria de financiamento de inovação para o mercado dos EUA</string>
     <string name="master_degree">Mestrado</string>
-    <string name="international_relations">Relaçoes Internacionais</string>
-    <string name="master_first_year">Pos-graduação</string>
-    <string name="international_law">Direito INternacional</string>
+    <string name="international_relations">Relações Internacionais</string>
+    <string name="master_first_year">Pós-graduação</string>
+    <string name="international_law">Direito Internacional</string>
     <string name="bachelor">Graduação</string>
-    <string name="law_and_political_science">Direito e Ciêcia Política</string>
+    <string name="law_and_political_science">Direito e Ciência Política</string>
     <string name="technical_degree">Ensino médio integrado ao técnico</string>
-    <string name="informatics">Informatica</string>
+    <string name="informatics">Informática</string>
     <string name="english">Inglês</string>
     <string name="french">Francês</string>
     <string name="portuguese">Português</string>
@@ -50,25 +47,27 @@
     <string name="advanced">Avançado</string>
     <string name="fluent">Fluente</string>
     <string name="native_language">Língua nativa</string>
-    <string name="intermediary">Intermediario</string>
-    <string name="basic">Basico</string>
+    <string name="intermediary">Intermediário</string>
+    <string name="basic">Básico</string>
     <string name="certifications">Certificados</string>
     <string name="volunteering">Voluntariado</string>
     <string name="curiosities">Curiosidades sobre mim</string>
     <string name="chess_champion">" • Campeão de xadrez no Ensino Médio"</string>
-    <string name="trans_siberian_railway">" • Viajei no trem trans-siberiano"</string>
+    <string name="trans_siberian_railway">" • Viagem no trem trans-siberiano"</string>
     <string name="plays_guitar">" • Gosto de tocar violão"</string>
     <string name="swimming">" • Esporte favorito: natação"</string>
     <string name="women_s_world_cup">" • Orientação de torcedores - Copa do mundo feminina de 2019 na França"</string>
-    <string name="men_s_world_cup">" • Orientação de torcedores - Copa do mundo de 2018 na Russia"</string>
+    <string name="men_s_world_cup">" • Orientação de torcedores - Copa do mundo de 2018 na Rússia"</string>
     <string name="uefa_euro">" • Orientação de torcedores - Eurocopa de 2016 na França"</string>
     <string name="portuguese_teacher">" • Professor de português para refugiadas haitianas em 2011 no Brasil"</string>
     <string name="android_developer">Desenvolvedor Android</string>
     <string name="about_me">Sobre mim</string>
     <string name="international_mentality">" • Mentalidade internacional"</string>
-    <string name="interpersonal_skills">" • Habilidades interpessoais"</string>
+    <string name="communication">" • Comunicação"</string>
     <string name="teamwork">" • Trabalho em equipe"</string>
     <string name="adaptability">" • Adaptabilidade"</string>
-    <string name="analytical_skill">" • Habilidade analítica"</string>
-    <string name="native_android_kotlin_java">" • Android nativo (Kotlin + Java)"</string>
+    <string name="analytical_thinking">" • Pensamento analítico"</string>
+    <string name="business_vision">" • Visão de negócios"</string>
+    <string name="local_data_persistence">" • Persistência de dados locais"</string>
+    <string name="dependency_injection">" • Injeção de dependências"</string>
 </resources>

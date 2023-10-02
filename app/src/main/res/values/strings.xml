@@ -1,12 +1,11 @@
 <resources>
-    <string name="app_name">My CV</string>
-    <string name="resume">As a dynamic professional motivated by an interest in technology and
-        problem solving, I am seeking for new challenges as an Android developer.\n\n
-        In 4 years as an International Business developer I could work with international clients, successfully
-        collaborated with multi-cultural teams, and developed my communication adaptability.\n\n
-        My continuous willingness to learn new things and my aptitude for programming led me to
-        study Kotlin and Java, architecture for mobile apps and Android-related knowledge.\n\n
-        Knowledge that I want to put into practice as a mobile developer
+    <string name="app_name" translatable="false">CV Danilo Gomes</string>
+    <string name="resume">After 10 years of academic and professional experience in the field of
+        international relations, I realised that my vocation was to be a mobile developer.\n\nThese
+        experiences gave me the opportunity to develop skills such as foreign languages, client
+        communication and commercial vision.\n\nI\'m currently looking for a professional opportunity
+        to complete this career transition, contributing to Android application projects that provide
+        impactful and useful solutions to clients problems.
     </string>
     <string name="profile">Profile</string>
     <string name="work_experience">Work experience</string>
@@ -54,8 +53,8 @@
     <string name="volunteering">Volunteering</string>
     <string name="curiosities">Curiosities about me</string>
     <string name="chess_champion">" • Chess champion in High School"</string>
-    <string name="trans_siberian_railway">" • Travelled the Trans-Siberian Railway"</string>
-    <string name="plays_guitar">" • Plays guitar since was 10"</string>
+    <string name="trans_siberian_railway">" • Travel in the Trans-Siberian Railway"</string>
+    <string name="plays_guitar">" • Guitar player"</string>
     <string name="swimming">" • Favorite sport: swimming"</string>
     <string name="women_s_world_cup">" • Fans\' support and orientation - Women\'s World Cup 2019 in France"</string>
     <string name="men_s_world_cup">" • Fans\' support and orientation - Men\'s World Cup 2018 in Russia"</string>
@@ -63,10 +62,12 @@
     <string name="portuguese_teacher">" • Portuguese teacher for refugee Haitian women in 2011 in Brazil"</string>
     <string name="android_developer">Android Developer</string>
     <string name="about_me">About me</string>
-    <string name="international_mentality">" • International mentality "</string>
-    <string name="interpersonal_skills">" • Interpersonal skills"</string>
+    <string name="international_mentality">" • International mentality"</string>
+    <string name="communication">" • Communication"</string>
     <string name="teamwork">" • Teamwork"</string>
     <string name="adaptability">" • Adaptability"</string>
-    <string name="analytical_skill">" • Analytical skill"</string>
-    <string name="native_android_kotlin_java">" • Native Android (Kotlin + Java)"</string>
+    <string name="analytical_thinking">" • Analytical thinking"</string>
+    <string name="business_vision">" • Business vision"</string>
+    <string name="local_data_persistence">" • Local data persistence"</string>
+    <string name="dependency_injection">" • Dependency injection"</string>
 </resources>

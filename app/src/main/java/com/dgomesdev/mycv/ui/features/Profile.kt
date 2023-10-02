@@ -113,7 +113,8 @@ fun Profile(
                 )
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
-                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp
+                        else Icons.Filled.KeyboardArrowDown,
                         contentDescription = if (expanded) stringResource(R.string.show_less)
                         else stringResource(R.string.show_more)
                     )
@@ -160,7 +161,8 @@ fun Profile(
                 )
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
-                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp
+                        else Icons.Filled.KeyboardArrowDown,
                         contentDescription = if (expanded) stringResource(R.string.show_less)
                         else stringResource(R.string.show_more)
                     )
@@ -169,10 +171,10 @@ fun Profile(
             if (expanded) {
                 Column(modifier.padding(start = 8.dp, bottom = 8.dp)) {
                     Text(stringResource(R.string.international_mentality))
-                    Text(stringResource(R.string.interpersonal_skills))
+                    Text(stringResource(R.string.communication))
                     Text(stringResource(R.string.teamwork))
                     Text(stringResource(R.string.adaptability))
-                    Text(stringResource(R.string.analytical_skill))
+                    Text(stringResource(R.string.analytical_thinking))
                 }
             }
         }
@@ -209,7 +211,8 @@ fun Profile(
                 )
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
-                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp
+                        else Icons.Filled.KeyboardArrowDown,
                         contentDescription = if (expanded) stringResource(R.string.show_less)
                         else stringResource(R.string.show_more)
                     )
@@ -219,11 +222,11 @@ fun Profile(
                 Column(
                     modifier.padding(start = 8.dp, bottom = 8.dp)
                 ) {
-                    Text(stringResource(R.string.native_android_kotlin_java))
-                    Text(" • MVVM")
-                    Text(" • Jetpack Compose")
-                    Text(" • SQLite")
-                    Text(" • Git")
+                    Text(stringResource(R.string.business_vision))
+                    Text(" • Kotlin & Java")
+                    Text(" • Api Rest")
+                    Text(stringResource(R.string.local_data_persistence))
+                    Text(stringResource(R.string.dependency_injection))
                 }
             }
         }
