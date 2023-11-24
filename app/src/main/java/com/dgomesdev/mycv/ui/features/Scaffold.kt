@@ -27,6 +27,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -51,11 +52,11 @@ typealias OnLanguageChange = (String) -> Unit
 fun CVApp(
     onContactClick: OnContactClick,
     context: Context,
-    onLanguageChange: OnLanguageChange
+    onLanguageChange: OnLanguageChange,
 ) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
-    var sections  by remember {
+    var sections by remember {
         mutableStateOf(Pair("Profile", context.getString(R.string.profile)))
     }
     val scope = rememberCoroutineScope()
@@ -75,7 +76,7 @@ fun CVApp(
         drawerBackgroundColor = Color.Black,
         drawerContent = {
             Image(
-                painter = painterResource(R.drawable.dgomesdev_logo),
+                painter = painterResource(R.drawable.dgomesdev_logo_new),
                 contentDescription = "DGomes Dev logo"
             )
             Sections(
@@ -107,21 +108,22 @@ fun CVApp(
 @Composable
 fun CVTopBar(
     onNavigationIconClick: () -> Unit,
-    onLanguageChange: OnLanguageChange
+    onLanguageChange: OnLanguageChange,
 ) {
     var expandedMenu by remember {
         mutableStateOf(false)
     }
     TopAppBar(
         backgroundColor = DgomesDevGreen,
-        title = { Text(stringResource(R.string.app_name)) },
+        title = { Text(stringResource(R.string.app_name), color = Color.Black) },
         navigationIcon = {
             IconButton(
                 onClick = onNavigationIconClick
             ) {
                 Icon(
                     imageVector = Icons.Default.Menu,
-                    contentDescription = stringResource(R.string.cv_sections)
+                    contentDescription = stringResource(R.string.cv_sections),
+                    tint = Color.Black
                 )
             }
         },
@@ -129,13 +131,14 @@ fun CVTopBar(
             IconButton(onClick = { expandedMenu = !expandedMenu }) {
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.ic_language),
-                    contentDescription = stringResource(R.string.language_options)
+                    contentDescription = stringResource(R.string.language_options),
+                    tint = Color.Black
                 )
                 LanguageMenu(
                     expandedMenu = expandedMenu,
                     onExpandChange = { expandedMenu = !expandedMenu },
                     onLanguageChange = onLanguageChange
-                    )
+                )
             }
         }
     )
@@ -145,7 +148,7 @@ fun CVTopBar(
 fun Sections(
     onNavigate: (String) -> Unit,
     onExpandChange: () -> Unit,
-    onScreenChange: (Pair<String, String>) -> Unit
+    onScreenChange: (Pair<String, String>) -> Unit,
 ) {
     Column {
         val sections = mapOf(
@@ -171,7 +174,8 @@ fun Sections(
                             onNavigate(section.key)
                             onScreenChange(screen)
                             onExpandChange()
-                        }
+                        },
+                    Color.Black
                 )
             }
         }
@@ -182,22 +186,28 @@ fun Sections(
 fun LanguageMenu(
     expandedMenu: Boolean,
     onExpandChange: () -> Unit,
-    onLanguageChange: OnLanguageChange
+    onLanguageChange: OnLanguageChange,
 ) {
     DropdownMenu(expanded = expandedMenu, onDismissRequest = { onExpandChange() }) {
-        DropdownMenuItem({Text("English")}, onClick = { onExpandChange() ; onLanguageChange("en")})
-        DropdownMenuItem({Text("Français")}, onClick = { onExpandChange() ; onLanguageChange("fr")})
-        DropdownMenuItem({Text("Português")}, onClick = { onExpandChange() ; onLanguageChange("pt")})
+        DropdownMenuItem(
+            { Text("English") },
+            onClick = { onExpandChange(); onLanguageChange("en") })
+        DropdownMenuItem(
+            { Text("Français") },
+            onClick = { onExpandChange(); onLanguageChange("fr") })
+        DropdownMenuItem(
+            { Text("Português") },
+            onClick = { onExpandChange(); onLanguageChange("pt") })
     }
 }
 
 @Composable
 fun CVBottomBar(
     onNavigate: (String) -> Unit,
-    sections: Pair<String, String>
+    sections: Pair<String, String>,
 ) {
     var currentScreen by rememberSaveable {
-        mutableStateOf(0)
+        mutableIntStateOf(0)
     }
     val tabs = listOf(sections.first, "Contact")
     NavigationBar(
@@ -208,16 +218,22 @@ fun CVBottomBar(
                 selected = currentScreen == index,
                 onClick = { onNavigate(tab); currentScreen = index },
                 icon = {
-                    if (index == 0) Icon(imageVector = Icons.Default.List, contentDescription = tab)
+                    if (index == 0) Icon(
+                        imageVector = Icons.Default.List,
+                        contentDescription = tab,
+                        tint = Color.Black
+                    )
                     else Icon(
                         imageVector = Icons.Default.AccountCircle,
-                        contentDescription = "Contact"
+                        contentDescription = "Contact",
+                        tint = Color.Black
                     )
                 },
                 label = {
                     Text(
                         if (index == 0) sections.second
-                        else stringResource(R.string.contact)
+                        else stringResource(R.string.contact),
+                        color = Color.Black
                     )
                 }
             )

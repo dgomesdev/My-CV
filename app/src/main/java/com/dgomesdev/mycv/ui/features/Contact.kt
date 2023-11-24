@@ -111,7 +111,7 @@ sealed class ContactInfo(val logo: Int, val info: String, val link: String) {
     )
 
     object PlayStore : ContactInfo(
-        R.drawable.google_play,
+        R.drawable.play_store_logo,
         "Play store page",
         "https://play.google.com/store/apps/developer?id=Dgomes+Dev"
     )

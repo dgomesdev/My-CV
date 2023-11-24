@@ -226,7 +226,7 @@ fun Profile(
                     Text(" • Kotlin & Java")
                     Text(" • Api Rest")
                     Text(stringResource(R.string.local_data_persistence))
-                    Text(stringResource(R.string.dependency_injection))
+                    Text("Firebase")
                 }
             }
         }
