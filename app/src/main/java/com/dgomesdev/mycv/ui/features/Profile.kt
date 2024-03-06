@@ -3,7 +3,6 @@ package com.dgomesdev.mycv.ui.features
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,6 +17,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -30,19 +30,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import coil.compose.SubcomposeAsyncImage
+import coil.request.ImageRequest
 import com.dgomesdev.mycv.R
+import com.dgomesdev.mycv.model.Profile
 
 @Composable
 fun Profile(
-    modifier: Modifier
+    modifier: Modifier,
+    profile: Profile
 ) {
     ConstraintLayout(
         modifier = modifier.verticalScroll(rememberScrollState())
@@ -58,8 +61,13 @@ fun Profile(
             fontSize = 32.sp,
             fontWeight = FontWeight.Bold
         )
-        Image(
-            painter = painterResource(R.drawable.profile_picture),
+        SubcomposeAsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(profile.photo)
+                .crossfade(true)
+                .error(R.drawable.profile_picture)
+                .build(),
+            loading = { CircularProgressIndicator() },
             contentDescription = "Danilo Gomes photo",
             modifier = Modifier
                 .constrainAs(photo) {
@@ -71,7 +79,7 @@ fun Profile(
                 .size(200.dp)
         )
         Text(
-            stringResource(R.string.android_developer),
+            profile.title,
             modifier = modifier.constrainAs(title) {
                 top.linkTo(photo.bottom, margin = 16.dp)
                 start.linkTo(parent.start)
@@ -122,7 +130,7 @@ fun Profile(
             }
             if (expanded) {
                 Text(
-                    stringResource(R.string.resume),
+                    profile.aboutMe,
                     modifier = modifier.padding(8.dp),
                     textAlign = TextAlign.Justify
                 )
@@ -170,11 +178,9 @@ fun Profile(
             }
             if (expanded) {
                 Column(modifier.padding(start = 8.dp, bottom = 8.dp)) {
-                    Text(stringResource(R.string.international_mentality))
-                    Text(stringResource(R.string.communication))
-                    Text(stringResource(R.string.teamwork))
-                    Text(stringResource(R.string.adaptability))
-                    Text(stringResource(R.string.analytical_thinking))
+                    for (softSkill in profile.softSkills) {
+                        Text(" • $softSkill")
+                    }
                 }
             }
         }
@@ -222,19 +228,11 @@ fun Profile(
                 Column(
                     modifier.padding(start = 8.dp, bottom = 8.dp)
                 ) {
-                    Text(stringResource(R.string.business_vision))
-                    Text(" • Kotlin & Java")
-                    Text(" • Api Rest")
-                    Text(stringResource(R.string.local_data_persistence))
-                    Text("Firebase")
+                    for (hardSkill in profile.hardSkills) {
+                        Text(" • $hardSkill")
+                    }
                 }
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ProfilePreview() {
-    Profile(modifier = Modifier.padding(8.dp))
 }

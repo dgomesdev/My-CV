@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "534997666041",
+    "firebase_url": "https://cv-danilo-gomes-default-rtdb.firebaseio.com",
+    "project_id": "cv-danilo-gomes",
+    "storage_bucket": "cv-danilo-gomes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534997666041:android:6dae290a94d03a01d03a28",
+        "android_client_info": {
+          "package_name": "com.dgomesdev.mycv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSaYPBMhpdEUk_Rh6wO0gCeMDk3YWNpd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

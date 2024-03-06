@@ -1,6 +1,5 @@
 package com.dgomesdev.mycv.ui.features
 
-import android.content.Context
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -29,24 +28,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dgomesdev.mycv.R
+import com.dgomesdev.mycv.model.WorkExperience
 
 @Composable
 fun WorkExperiences(
     modifier: Modifier,
-    context: Context
+    workExperienceList: List<WorkExperience>
 ) {
     Column(modifier = modifier.verticalScroll(rememberScrollState())) {
-        Experience(modifier = modifier, job = JobExperience.BusinessFrance(context))
-        Experience(modifier = modifier, job = JobExperience.Rodafuso(context))
-        Experience(modifier = modifier, job = JobExperience.Stracau(context))
-        Experience(modifier = modifier, job = JobExperience.Businove(context))
+        for (workExperience in workExperienceList) {
+                Experience(modifier, job = workExperience)
+            }
     }
 }
 
 @Composable
 fun Experience(
     modifier: Modifier,
-    job: JobExperience
+    job: WorkExperience
 ) {
     var expanded by remember {
         mutableStateOf(false)
@@ -68,7 +67,7 @@ fun Experience(
             modifier = modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("${job.job} at ${job.company}", modifier = modifier.weight(4f))
+            Text("${job.jobTitle} at ${job.company}", modifier = modifier.weight(4f))
             IconButton(onClick = { expanded = !expanded }, modifier = modifier.weight(1f)) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
@@ -79,55 +78,12 @@ fun Experience(
         }
         if (expanded) {
             Column(modifier = modifier.padding(8.dp)) {
-                Text("${job.beginDate} - ${job.endDate}")
+                Text("${job.beginningDate} - ${job.endDate}")
                 Text(job.location, modifier = Modifier.padding(top = 16.dp))
-                Text(job.description, modifier = Modifier.padding(top = 16.dp))
+                for (task in job.summary) {
+                    Text(task, modifier = Modifier.padding(top = 16.dp))
+                }
             }
         }
     }
-}
-
-sealed class JobExperience(
-    val job: String,
-    val company: String,
-    val beginDate: String,
-    val endDate: String,
-    val location: String,
-    val description: String
-) {
-    class BusinessFrance(context: Context) : JobExperience(
-        context.getString(R.string.international_business_developer),
-        "Business France",
-        "09/2021",
-        "09/2023",
-        "Sao Paulo, Brazil",
-        context.getString(R.string.tech)
-    )
-
-    class Rodafuso(context: Context) : JobExperience(
-        context.getString(R.string.international_sales),
-        "Rodafuso",
-        "01/2021",
-        "09/2021",
-        "Sao Bernardo do Campo, Brazil",
-        context.getString(R.string.industrial_parts)
-    )
-
-    class Stracau(context: Context) : JobExperience(
-        context.getString(R.string.international_sales),
-        "Stracau Valves France",
-        "10/2019",
-        "09/2020",
-        "Genas, France",
-        context.getString(R.string.industrial_valves)
-    )
-
-    class Businove(context: Context) : JobExperience(
-        context.getString(R.string.international_development_assistant),
-        "Businove Innovation Consulting",
-        "04/2019",
-        "09/2019",
-        "Lyon, France",
-        context.getString(R.string.consulting_firm)
-    )
 }

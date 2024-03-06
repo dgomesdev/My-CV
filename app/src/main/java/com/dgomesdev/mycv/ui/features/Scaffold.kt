@@ -1,6 +1,5 @@
 package com.dgomesdev.mycv.ui.features
 
-import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,12 +9,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.Scaffold
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -36,12 +38,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.dgomesdev.mycv.R
+import com.dgomesdev.mycv.model.CvData
 import com.dgomesdev.mycv.ui.theme.DgomesDevGreen
 import kotlinx.coroutines.launch
 
@@ -51,11 +55,12 @@ typealias OnLanguageChange = (String) -> Unit
 @Composable
 fun CVApp(
     onContactClick: OnContactClick,
-    context: Context,
     onLanguageChange: OnLanguageChange,
+    cvData: CvData
 ) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
+    val context = LocalContext.current
     var sections by remember {
         mutableStateOf(Pair("Profile", context.getString(R.string.profile)))
     }
@@ -100,7 +105,7 @@ fun CVApp(
             navController = navController,
             modifier = Modifier.padding(it),
             onContactClick,
-            context
+            cvData
         )
     }
 }
@@ -219,7 +224,7 @@ fun CVBottomBar(
                 onClick = { onNavigate(tab); currentScreen = index },
                 icon = {
                     if (index == 0) Icon(
-                        imageVector = Icons.Default.List,
+                        imageVector = Icons.AutoMirrored.Filled.List,
                         contentDescription = tab,
                         tint = Color.Black
                     )

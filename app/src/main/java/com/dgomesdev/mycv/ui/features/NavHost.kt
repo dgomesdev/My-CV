@@ -1,6 +1,5 @@
 package com.dgomesdev.mycv.ui.features
 
-import android.content.Context
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -8,13 +7,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.dgomesdev.mycv.model.CvData
 
 @Composable
 fun CVNavHost(
     navController: NavHostController,
     modifier: Modifier,
     onContactClick: OnContactClick,
-    context: Context
+    cvData: CvData
 ) {
     NavHost(
         navController,
@@ -23,19 +23,19 @@ fun CVNavHost(
     ) {
         val padding = Modifier.padding(8.dp)
         composable(route = "Profile") {
-            Profile(padding)
+            Profile(padding, cvData.profile)
         }
         composable(route = "Work experience") {
-            WorkExperiences(padding, context)
+            WorkExperiences(padding, cvData.workExperience)
         }
         composable(route = "Education") {
-            Education(padding, context)
+            Education(padding, cvData.education)
         }
         composable(route = "Foreign languages") {
-            ForeignLanguages(padding, context)
+            ForeignLanguages(padding, cvData.foreignLanguages)
         }
         composable(route = "Other") {
-            Other(padding,context)
+            Other(padding, cvData.others)
         }
         composable(route = "Contact") {
             Contact(padding, onContactClick)

@@ -1,6 +1,5 @@
 package com.dgomesdev.mycv.ui.features
 
-import android.content.Context
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -27,18 +26,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.dgomesdev.mycv.R
+import com.dgomesdev.mycv.model.Education
 
 @Composable
 fun Education(
     modifier: Modifier,
-    context: Context
+    educationList: List<Education>
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
-        Course(modifier = modifier, course = CourseExperience.Master(context))
-        Course(modifier = modifier, course = CourseExperience.Exchange(context))
-        Course(modifier = modifier, course = CourseExperience.Bachelor(context))
-        Course(modifier = modifier, course = CourseExperience.Technical(context))
+        for (course in educationList) {
+                Course(modifier, course)
+            }
     }
 }
 
@@ -46,7 +44,7 @@ fun Education(
 @Composable
 fun Course(
     modifier: Modifier,
-    course: CourseExperience
+    course: Education
 ) {
     var expanded by remember {
         mutableStateOf(false)
@@ -68,7 +66,7 @@ fun Course(
             modifier = modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("${course.degree} - ${course.course}", modifier = modifier.weight(3f))
+            Text(course.degreeName, modifier = modifier.weight(3f))
             IconButton(onClick = { expanded = !expanded }, modifier = modifier.weight(1f)) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
@@ -79,55 +77,10 @@ fun Course(
         }
         if (expanded) {
             Column(modifier = modifier.padding(8.dp)) {
-                Text("${course.beginDate} - ${course.endDate}")
+                Text("${course.beginningDate} - ${course.endDate}")
                 Text(course.institution, modifier = Modifier.padding(top = 16.dp))
                 Text(course.location, modifier = Modifier.padding(top = 16.dp))
             }
         }
     }
-}
-
-sealed class CourseExperience(
-    val degree: String,
-    val course: String,
-    val institution: String,
-    val beginDate: String,
-    val endDate: String,
-    val location: String
-) {
-    class Master(context: Context) : CourseExperience(
-        context.getString(R.string.master_degree),
-        context.getString(R.string.international_relations),
-        "Université Jean Moulin Lyon 3",
-        "09/2016",
-        "09/2019",
-        "Lyon, France"
-    )
-
-    class Exchange(context: Context) : CourseExperience(
-        context.getString(R.string.master_first_year),
-        context.getString(R.string.international_law),
-        "MSAL - Moscow State University of Law",
-        "09/2017",
-        "06/2018",
-        "Moscow, Russia"
-    )
-
-    class Bachelor(context: Context) : CourseExperience(
-        context.getString(R.string.bachelor),
-        context.getString(R.string.law_and_political_science),
-        "Université Jean Moulin Lyon 3",
-        "09/2013",
-        "07/2016",
-        "Lyon, France"
-    )
-
-    class Technical(context: Context) : CourseExperience(
-        context.getString(R.string.technical_degree),
-        context.getString(R.string.informatics),
-        "Federal Institute of Education, Science and Technology",
-        "02/2009",
-        "11/2011",
-        "Manaus, Brazil"
-    )
 }
